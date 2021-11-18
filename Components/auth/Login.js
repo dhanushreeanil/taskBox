@@ -10,8 +10,7 @@ const Login = (props) => {
     const dispatch = useDispatch()
 
     const resetForm = () =>{
-        return initialValues
-        // props.form.values({})
+        return {}
     }
 
     const redirect = () =>{
@@ -23,9 +22,9 @@ const Login = (props) => {
         password : ""
     }
 
-    const onSubmit = values =>{
-        dispatch(startLoginData(values, resetForm, redirect))
-        console.log("formdata-values", values)
+    const onSubmit = (values, onSubmitProps) =>{
+        dispatch(startLoginData(values, redirect))
+        onSubmitProps.resetForm()
         alert(`successfully Logged-In`)
         props.handleAuth()
     }
@@ -42,10 +41,9 @@ const Login = (props) => {
             </div>
             <Formik initialValues = { initialValues }
                 validationSchema = { validationSchema }
-                onSubmit = { onSubmit } 
+                onSubmit = { onSubmit }
             >
             <Form>
-                {/* automatically links handleSubmit event to method passed into formik */}
                 <Field className="form-control"
                     type="text" 
                     name="email"
@@ -69,74 +67,3 @@ const Login = (props) => {
 }
 
 export default Login
-
-
-// import React, { useState } from 'react'
-// import { useDispatch } from 'react-redux'
-
-// import { startLoginData } from '../../actions/usersAction'
-
-// const Login = (props) => {
-
-//     const [loginUser, setLoginUser] = useState({
-//         email : "",
-//         password : ""
-//     })
-
-//     const dispatch = useDispatch()
-
-//     // const handleChange = (e) => {
-//     //     if(e.target.name === "email"){
-//     //         setLoginUser({...loginUser , email : e.target.value })
-//     //     }
-//     //     else if(e.target.name === "password"){
-//     //         setLoginUser({...loginUser, password : e.target.value })
-//     //     }
-//     // }
-//     const resetForm = () =>{
-//         setLoginUser({})
-//     }
-//     const redirect = () =>{
-//         props.history.push("/")
-//     }
-//     // const handleSubmit = (e) =>{
-//     //     e.preventDefault()
-//     //     const { email, password } = loginUser
-//     //     const formData = {
-//     //         email,
-//     //         password
-//     //     }
-//     //     console.log("login-data", formData)
-//     //     dispatch(startLoginData(formData,resetForm,redirect))
-//     //     alert(`successfully Logged-In`)
-//     //     props.handleAuth()
-//     // }
-
-//     return (
-//         <div className="container-fluid">
-//             <div className="jumbotron">
-//                 <h2>Login to your Account</h2>
-//             </div>
-//             <form className="form-group" onSubmit={ handleSubmit }>
-//                 <input class="form-control"
-//                     type="text" 
-//                     placeholder="Enter email" 
-//                     value={ loginUser.email }
-//                     onChange = { handleChange }
-//                     name="email"    
-//                 /><br/>
-//                 <input class="form-control"
-//                     type="password" 
-//                     placeholder="Enter password" 
-//                     value={ loginUser.password }
-//                     onChange = { handleChange } 
-//                     name="password"
-//                 /><br/>
-//                 <input class="btn btn-info" type="submit" value="Login" />
-//                 <input class="btn btn-danger" type="submit" value="Cancel" />
-//             </form>
-//         </div>
-//     )
-// }
-
-// export default Login

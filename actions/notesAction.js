@@ -39,13 +39,13 @@ export const startAddNote = (formData, resetForm) =>{
     
                 .then((response)=>{
                     const result = response.data
-                    console.log("addnote - action", result)
+                    // console.log("addnote - action", result)
                     if(Object.keys(result).includes('errors')){
                         alert(result.errors)
                     }
                     else{
-                        resetForm()
                         dispatch(addNotes(result))
+                        resetForm()
                     }
                 })
                 .catch((error)=>{
@@ -74,7 +74,7 @@ export const startRemoveNote = (_id) =>{
                 const result = response.data
                // removeItem(result._id)
                dispatch(removeNote(result._id))
-               console.log("remove note - action", result._id)
+            //    console.log("remove note - action", result._id)
             //    console.log("result id", result._id)
             })
             .catch((error) => {
@@ -110,10 +110,10 @@ export const startSingleUser = (_id) =>{
                 })
             .catch((error)=>{
                 const result = error.message
-                swal({
-                    title : result,
-                    button : "cancel"
-                })
+                // swal({
+                //     title : result,
+                //     button : "cancel"
+                // })
             })
     }
 }
