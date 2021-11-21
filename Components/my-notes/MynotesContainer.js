@@ -16,7 +16,7 @@ const MynotesContainer = (props) => {
     return (
         <div className="container-fluid">
 
-            <div className="jumbotron">
+            <div className="text-muted p-3">
                 <h2> My Notes </h2>
             </div>
 

@@ -29,7 +29,7 @@ export const setMynotes = (mynotes) =>{
 
 // add note
 
-export const startAddNote = (formData, resetForm) =>{
+export const startAddNote = (formData) =>{
     return (dispatch) =>{
         axios.post(`http://dct-user-auth.herokuapp.com/api/notes`,formData ,{
                     headers:{
@@ -45,7 +45,6 @@ export const startAddNote = (formData, resetForm) =>{
                     }
                     else{
                         dispatch(addNotes(result))
-                        resetForm()
                     }
                 })
                 .catch((error)=>{
@@ -72,10 +71,7 @@ export const startRemoveNote = (_id) =>{
             })
             .then((response) => {
                 const result = response.data
-               // removeItem(result._id)
                dispatch(removeNote(result._id))
-            //    console.log("remove note - action", result._id)
-            //    console.log("result id", result._id)
             })
             .catch((error) => {
                 alert(error.message)
@@ -110,10 +106,6 @@ export const startSingleUser = (_id) =>{
                 })
             .catch((error)=>{
                 const result = error.message
-                // swal({
-                //     title : result,
-                //     button : "cancel"
-                // })
             })
     }
 }

@@ -9,9 +9,10 @@ const notesReducer = (state = notesInitialState, action) =>{
             return [...state,{...action.payload}]
         }
         case "REMOVE_NOTE" : {
-            return  state.mynotes.filter((note) => {
+            return state.filter((note) => {
                 return action.payload !== note._id
             }) 
+           
         }
         default : {
             return [...state]

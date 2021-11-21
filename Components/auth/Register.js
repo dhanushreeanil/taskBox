@@ -15,13 +15,12 @@ const Register = (props) => {
 
     const initialValues = {
         username : "",
-        email : "dhanu",
+        email : "",
         password : ""
     }
 
     const onSubmit = (values, onSubmitProps) =>{
         dispatch(startRegisterData(values, redirect))
-        console.log("formdata-values", values)
         onSubmitProps.resetForm()
     }
 
@@ -32,10 +31,7 @@ const Register = (props) => {
     })
 
     return (
-        <div className="container-fluid">
-            <div className="jumbotron">
-                <h2> Register With Us</h2>
-            </div>
+        <div className="container-fluid p-3">
             <Formik initialValues = { initialValues }
                 validationSchema = { validationSchema }
                 onSubmit = { onSubmit } 

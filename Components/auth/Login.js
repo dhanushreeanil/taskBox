@@ -9,10 +9,6 @@ const Login = (props) => {
 
     const dispatch = useDispatch()
 
-    const resetForm = () =>{
-        return {}
-    }
-
     const redirect = () =>{
         props.history.push("/")
     }
@@ -35,10 +31,7 @@ const Login = (props) => {
     })
 
     return (
-        <div className="container-fluid">
-            <div className="jumbotron">
-                <h2> Login With Us</h2>
-            </div>
+        <div className="container-fluid p-3">
             <Formik initialValues = { initialValues }
                 validationSchema = { validationSchema }
                 onSubmit = { onSubmit }

@@ -18,13 +18,12 @@ const Account = (props) => {
 
     return (
         <div className="container-fluid">
-            { user && <div className="container-fluid">
-            <div className="jumbotron">
-                <h2> User Account </h2>
-            </div>
+            { user ? <div className="container-fluid p-3">
+                <h2 className="text-muted p-3"> User Account </h2>
                 <h4> Username - { user.username } </h4>
                 <h4> Email - { user.email } </h4>
-            </div> }
+            </div> : null 
+            }
         </div>
     )
 }
