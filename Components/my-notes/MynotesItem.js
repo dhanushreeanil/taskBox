@@ -11,7 +11,7 @@ const MynotesItem = (props) => {
 
     const [toggle, setToggle] = useState(false)
 
-    const handleRemove = (e) => {
+    const handleRemove = () => {
         const confirm = window.confirm('are you sure to remove ?')
         if(confirm){
             dispatch(startRemoveNote(_id))
@@ -29,9 +29,10 @@ const MynotesItem = (props) => {
                 <h4> { body } </h4>
           </div> : 
           <div>
-                <h5 onClick = { handleShow }> 
-                    { title } <button class="btn btn-danger" onClick = { handleRemove } > remove </button>
-                </h5>
+                <p onClick = { handleShow }> 
+                    { title } 
+                </p>
+                <button class="btn btn-danger" onClick = { handleRemove } > remove </button>
           </div>
       }
         </div>

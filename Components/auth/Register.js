@@ -9,10 +9,6 @@ const Register = (props) => {
 
     const dispatch = useDispatch()
 
-    const resetForm = () =>{
-        return initialValues
-    }
-
     const redirect = () =>{
         props.history.push("/login")
     }

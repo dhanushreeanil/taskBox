@@ -17,7 +17,7 @@ const App = (props) => {
 
   return (
     <div className="container-fluid">
-        <div className="jumbotron text-center">
+        <div className="text-center bg-muted">
            <h1> User Authentication </h1>
         </div>
         <NavBar isLoggedIn = { isLoggedIn } handleAuth = { handleAuth } />
