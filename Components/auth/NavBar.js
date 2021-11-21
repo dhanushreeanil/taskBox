@@ -22,7 +22,7 @@ const NavBar = (props) => {
                                 localStorage.removeItem('token')
                                 alert(`successfully logged-out.`)
                                 handleAuth() 
-                                props.history.push('/')
+                                props.history.push('/login')
                             }}> Logout </Link> </li>
                     </React.Fragment> ) 
                     : 

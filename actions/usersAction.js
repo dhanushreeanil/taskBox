@@ -2,7 +2,7 @@ import axios from "axios"
 
 // register
 
-export const startRegisterData = (formData, resetForm, redirect) =>{
+export const startRegisterData = (formData, redirect) =>{
     return (dispatch)=>{
         axios.post(`http://dct-user-auth.herokuapp.com/users/register`,formData)
         .then((response)=>{
@@ -13,19 +13,18 @@ export const startRegisterData = (formData, resetForm, redirect) =>{
             else{
                 alert(`successfully created account`)
                 redirect()
-                resetForm()
             }
         })
         .catch((err)=>{
             const error = err.message
-            console.log(error) 
+            // console.log(error) 
         })
     }
 }
 
 // login
 
-export const startLoginData = (formData,resetForm,redirect) =>{
+export const startLoginData = (formData,redirect) =>{
     return (dispatch) =>{
         axios.post(`http://dct-user-auth.herokuapp.com/users/login`, formData)
             .then((response)=>{
@@ -35,7 +34,6 @@ export const startLoginData = (formData,resetForm,redirect) =>{
                 }
                 else{
                     dispatch(startGetUser())
-                    resetForm()
                     localStorage.setItem('token', result.token)
                     redirect()
                     // console.log("login-action - result", result)
@@ -61,9 +59,8 @@ export const startGetUser = () =>{
                     alert(result.errors)
                 }
                 else{
-                    // alert(`successfully Logged-In`)
                     dispatch(setUser(result))
-                    console.log("account-action", result)
+                    // console.log("account-action", result)
                 }  
             })
             .catch((err)=>{

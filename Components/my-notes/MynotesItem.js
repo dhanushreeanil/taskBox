@@ -5,7 +5,7 @@ import { startRemoveNote, startSingleUser } from "../../actions/notesAction"
 
 const MynotesItem = (props) => {
 
-    const { _id, title, body } = props
+    const { _id, title } = props
     const dispatch = useDispatch()
 
     const handleRemove = () => {

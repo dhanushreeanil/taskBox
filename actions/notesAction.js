@@ -11,11 +11,11 @@ export const startGetNotes = () =>{
             .then((response)=>{
                 const result = response.data
                 dispatch(setMynotes(result))
-                console.log("notes-action", result)
+                // console.log("notes-action", result)
             })
             .catch((err)=>{
                 const error = err.message
-                console.log(error) 
+                // console.log(error) 
             })
     }
 }
@@ -97,7 +97,7 @@ export const startSingleUser = (_id) =>{
         })
             .then((response)=>{
                 const result = response.data
-                console.log("swal", result)
+                // console.log("swal", result)
                 swal({
                     title : result.title,
                     text : result.body,
@@ -106,6 +106,7 @@ export const startSingleUser = (_id) =>{
                 })
             .catch((error)=>{
                 const result = error.message
+                //  console.log("error-single-user",result)
             })
     }
 }

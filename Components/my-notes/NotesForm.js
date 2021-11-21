@@ -16,13 +16,14 @@ const NotesForm = (props) => {
 
     const onSubmit = (values, onSubmitProps) =>{
         dispatch(startAddNote(values))
-        console.log("values",values)
+        // console.log("values",values)
         onSubmitProps.resetForm()
         props.handleAuth()
     }
 
     const validationSchema = Yup.object({
         title : Yup.string().required("Required*"),
+        body : Yup.string().required("Required*")
     })
 
     return (

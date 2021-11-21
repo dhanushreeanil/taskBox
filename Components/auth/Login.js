@@ -10,7 +10,7 @@ const Login = (props) => {
     const dispatch = useDispatch()
 
     const redirect = () =>{
-        props.history.push("/")
+        props.history.push("/my-notes")
     }
 
     const initialValues = {
